@@ -1,14 +1,45 @@
 <html>
 <head>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/font-awesome.css" />
+  <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/squarepig.js"></script>
+  <script type="text/javascript" src="js/resources/constants.js"></script>
+  <script type="text/javascript" src="js/model/grid.js"></script>
+  <script type="text/javascript" src="js/model/player.js"></script>
+  <script type="text/javascript" src="js/model/game_map.js"></script>
+  <script type="text/javascript" src="js/model/cursor.js"></script>
+  <script type="text/javascript" src="js/janet.js"></script>
 </head>
 <body>
-<input type="file" name="somename" size="chars">
+<div id="main">
+  <div id="todo">
+    <div class="todo-list">
+      <h2>todo</h2>
+      <p>add cursor, cursor follows mouse, snap to grid</p>
+      <p>click to add tiles</p>
+      <p>toggle modes</p>
+    </div>
+  </div>
 
-http://www.html5rocks.com/en/tutorials/file/dndfiles/
+  <div class="blank-canvas">
+    <canvas id="main-canvas" style="width:640px;height:480px">
+      <p>Hang on! Your browser doesn't support the &lt;canvas&gt; tag! You should get on that.</p>
+    </canvas>
+  </div>
+</div>
 
-https://github.com/batiste/sprite.js
 
-http://docs.gameclosure.com/guide/install.html
+<div style="display:none;">
+  <input type="file" name="somename" size="chars">
+
+  http://www.html5rocks.com/en/tutorials/file/dndfiles/
+
+  https://github.com/batiste/sprite.js
+
+  http://docs.gameclosure.com/guide/install.html
+</div>
 </body>
 </html>

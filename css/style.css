@@ -1,0 +1,31 @@
+body {
+  background: #171141;
+  font-family: Lato, sans-serif;
+}
+
+#main {
+  margin: 20px auto;
+  width: 640px;
+  height: 480px;
+}
+
+#main-canvas {
+  width: 640px;
+  height: 480px;
+}
+
+#todo {
+  float: right;
+  color: #3856FF;
+  position: relative;
+}
+
+.todo-list {
+  position: absolute;
+  left: 20px;
+  width: 300px;
+}
+
+.blank-canvas {
+  background: #FFFFFF;
+}
