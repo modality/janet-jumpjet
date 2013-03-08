@@ -20,9 +20,6 @@ pig.Grid = function(x, y, w, h, tw, th) {
 	this.context.fillRect(0, 0, w, h);
 
   this.setTile = function(tx, ty, solid) {
-    console.log('setting grid tile: ', tx, ty, solid);
-    console.log(this.canvas);
-
     this.context.fillStyle = solid ? SOLID : EMPTY;
     this.context.fillRect(tx * this.tw, ty * this.th, this.tw, this.th);
   };

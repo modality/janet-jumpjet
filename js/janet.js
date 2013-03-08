@@ -2,27 +2,27 @@ var JJ = JJ || {};
 
 $(function() {
   JJ.Main = (function() {
+    var controller;
+
     function init() {
-      console.log('initializing canvas...');
-      pig.init('main-canvas');
+      controller = new JJ.GameController();
+    }
 
-      var grid = new pig.Grid(0, 0, 640, 480, 40, 40);
-      var gm = new JJ.GameMap(grid);
-      var janet = new JJ.Player(320, 240, grid); 
-
-      pig.world.add(gm);
-      //pig.world.add(grid);
-      pig.world.add(janet);
-      pig.world.add(new JJ.Cursor(0, 0, gm));
-      pig.run();
-
-      console.log(janet);
+    function changeGameMode(mode) {
+      controller.changeGameMode(mode);
     }
 
     return {
-      init: init
+      init: init,
+      changeGameMode: changeGameMode
     };
   })();
+
+  $('.menu li').on('click', function() {
+    $('.menu li').removeClass('active');
+    JJ.Main.changeGameMode($(this).attr('class'));
+    $(this).addClass('active'); 
+  });
 
   JJ.Main.init();
 });

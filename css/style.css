@@ -1,5 +1,5 @@
 body {
-  background: #171141;
+  background: #EEEEEE;
   font-family: Lato, sans-serif;
 }
 
@@ -16,7 +16,7 @@ body {
 
 #todo {
   float: right;
-  color: #3856FF;
+  color: #000000;
   position: relative;
 }
 
@@ -27,5 +27,24 @@ body {
 }
 
 .blank-canvas {
-  background: #FFFFFF;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  display: block;
+  float: left;
+  padding: 5px 10px;
+  background: #CCC;
+  margin-right: 3px;
+  cursor: pointer;
+}
+
+.menu li.active {
+  background: #333;
+  color: #FFF;
 }
