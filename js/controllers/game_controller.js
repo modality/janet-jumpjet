@@ -30,4 +30,7 @@ JJ.GameController = function() {
     pig.world.add(cursor);
   };
 
+  this.rulesMode = function() {
+  };
+
 }
