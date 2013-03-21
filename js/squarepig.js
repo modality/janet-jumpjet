@@ -715,6 +715,7 @@ pig.key = {
 	EIGHT: 56,
 	NINE:  57,
 
+	SPACE: 32,
 	LEFT: 37,
 	UP: 38,
 	RIGHT: 39,

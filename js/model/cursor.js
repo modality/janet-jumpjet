@@ -1,6 +1,6 @@
 var JJ = JJ || {};
 
-JJ.Cursor = function(x, y, gamemap) {
+JJ.Cursor = function(x, y) {
   pig.Entity.apply(this);
 
   this.x = x;
@@ -12,11 +12,5 @@ JJ.Cursor = function(x, y, gamemap) {
     this.x = Math.floor(pig.mouse.x / JJ.Constants.TILE_W) * JJ.Constants.TILE_W; 
     this.y = Math.floor(pig.mouse.y / JJ.Constants.TILE_H) * JJ.Constants.TILE_H;
     this.graphic.place([this.x, this.y]);
-  };
-  
-  this.mouseDown = function() {
-    gamemap.setTile(Math.floor(pig.mouse.x / JJ.Constants.TILE_W),
-                    Math.floor(pig.mouse.y / JJ.Constants.TILE_H),
-                    1);
   };
 }

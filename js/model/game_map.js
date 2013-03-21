@@ -17,7 +17,6 @@ JJ.GameMap = function(grid) {
 
   this.graphic = this.tilemap;
 
-
   this.setTile = function(tx, ty, tile) {
     this.grid.setTile(tx, ty, true);
     this.graphic.setTile(tx, ty, tile);
@@ -33,6 +32,6 @@ JJ.GameMap = function(grid) {
     if(key == pig.key.G) {
       this.graphic = this.tilemap;
     }
-  }
+  };
 
 };

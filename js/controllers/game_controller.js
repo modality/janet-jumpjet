@@ -1,16 +1,21 @@
 var JJ = JJ || {};
 
 JJ.GameController = function() {
+  pig.World.apply(this);
+
   console.log('initializing canvas...');
   pig.init('main-canvas');
+  pig.world = this;
 
-  var grid = new pig.Grid(0, 0, 640, 480, 40, 40);
-  var gm = new JJ.GameMap(grid);
-  var janet = new JJ.Player(320, 240, grid); 
-  var cursor = new JJ.Cursor(0, 0, gm);
+  this.grid = new pig.Grid(0, 0, 640, 480, 40, 40);
+  this.game_map = new JJ.GameMap(this.grid);
 
-  pig.world.add(gm);
-  pig.world.add(janet);
+  var janet = new JJ.Player(320, 240);
+  var cursor = new JJ.Cursor(0, 0);
+
+  this.add(this.game_map);
+  this.add(janet);
+
   pig.run();
 
   var modeOptions = {};
@@ -30,7 +35,12 @@ JJ.GameController = function() {
     pig.world.add(cursor);
   };
 
+  cursor.mouseDown = function() {
+    pig.world.game_map.setTile(Math.floor(pig.mouse.x / JJ.Constants.TILE_W),
+                               Math.floor(pig.mouse.y / JJ.Constants.TILE_H),
+                               1);
+  }
+
   this.rulesMode = function() {
   };
-
-}
+};
