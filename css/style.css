@@ -40,6 +40,7 @@ body {
 }
 
 .rules-module {
+  display: none;
   width: 630px;
   height: 470px;
   background: #FFFFFF;
