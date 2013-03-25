@@ -2,14 +2,23 @@ var JJ = JJ || {};
 
 $(function() {
   JJ.Main = (function() {
-    var controller;
+    var game_controller, ui_controller;
 
     function init() {
-      controller = new JJ.GameController();
+      game_controller = new JJ.GameController();
+      ui_controller = new JJ.UIController();
     }
 
     function changeGameMode(mode) {
-      controller.changeGameMode(mode);
+      game_controller.changeGameMode(mode);
+
+      if(mode == 'rules') {
+        $('.rules-module').show();
+        $('.game-module').hide();
+      } else {
+        $('.game-module').show();
+        $('.rules-module').hide();
+      }
     }
 
     return {

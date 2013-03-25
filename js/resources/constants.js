@@ -12,3 +12,16 @@ JJ.Constants = {
   BULLET_SPEED: 400,
   FIRING_DELAY: 0.2
 };
+
+JJ.ConstantsUI = {
+  // PLAYER CONSTANTS
+  PLAYER_SPEED: {
+    name: "Player Speed"
+  },
+  BULLET_SPEED: {
+    name: "Bullet Speed"
+  },
+  FIRING_DELAY: {
+    name: "Firing Delay"
+  }
+}

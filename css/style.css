@@ -1,6 +1,6 @@
 body {
   background: #EEEEEE;
-  font-family: Lato, sans-serif;
+  font-family: Playfair Display, serif;
 }
 
 #main {
@@ -26,7 +26,38 @@ body {
   width: 300px;
 }
 
-.blank-canvas {
+.menu {
+  clear: both;
+  height: 31px;
+}
+
+.display {
+  width: 640px;
+  height: 480px;
+}
+
+.game-module {
+}
+
+.rules-module {
+  width: 630px;
+  height: 470px;
+  background: #FFFFFF;
+  padding: 5px;
+}
+
+.rules-module .constant {
+  margin-bottom: 5px;
+}
+
+.rules-module .constant label {
+  width: 120px;
+  display: block;
+  float: left;
+}
+
+.rules-module .constant input {
+  width: 200px;
 }
 
 .menu ul {
