@@ -2,6 +2,7 @@ var JJ = JJ || {};
 
 JJ.GameController = function() {
   pig.World.apply(this);
+  JJ.CombatRules.apply(this);
 
   console.log('initializing canvas...');
   pig.init('main-canvas');
@@ -14,8 +15,11 @@ JJ.GameController = function() {
   var janet = new JJ.Player(320, 240);
   var cursor = new JJ.Cursor(0, 0);
 
+  var robot = new JJ.Robot(320, 300);
+
   this.add(this.game_map);
   this.add(janet);
+  this.add(robot);
 
   pig.run();
 
@@ -23,6 +27,7 @@ JJ.GameController = function() {
 
   this.update = function(dtime) {
     if(!this.paused) {
+      this.combat();
       this._update(dtime);
     }
   };

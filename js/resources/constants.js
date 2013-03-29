@@ -10,7 +10,11 @@ JJ.Constants = {
   // PLAYER CONSTANTS
   PLAYER_SPEED: 200,
   BULLET_SPEED: 400,
-  FIRING_DELAY: 0.2
+  FIRING_DELAY: 0.2,
+
+  // NPC CONSTANTS
+  ROBOT_SPEED: 60,
+  ROBOT_WALK_TIME: 1
 };
 
 JJ.ConstantsUI = {
@@ -23,5 +27,11 @@ JJ.ConstantsUI = {
   },
   FIRING_DELAY: {
     name: "Firing Delay"
+  },
+  ROBOT_SPEED: {
+    name: "Robot Speed"
+  },
+  ROBOT_WALK_TIME: {
+    name: "Robot Walk Time"
   }
 }

@@ -1,8 +1,6 @@
 var JJ = JJ || {};
 
 JJ.Player = function(x, y) {
-  var that = this;
-
   pig.Entity.apply(this);
 
   this.x = x;
