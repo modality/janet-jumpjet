@@ -199,6 +199,14 @@ pig.World = function() {
     return this.filter(function(e) { return e.type == type ; }) ;
   } ;
 
+  this.getTypes = function(types) {
+    var entities = [];
+    for(var t=types.length-1;t>=0;t--) {
+      entities = entities.concat(this.getType(types[t]));
+    }
+    return entities;
+  } ;
+
   this.keyDown = function(key) {
     for(var e = this.entities.length-1; e >= 0; --e) {
       if(this.entities[e].keyDown(key))

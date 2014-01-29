@@ -1,7 +1,7 @@
 var JJ = JJ || {};
 
 JJ.Player = function(x, y) {
-  pig.Entity.apply(this);
+  JJ.Entity.apply(this);
 
   this.x = x;
   this.y = y;
@@ -33,19 +33,10 @@ JJ.Player = function(x, y) {
       yOffset += dtime * JJ.Constants.PLAYER_SPEED;
     }
 
-    xOffset = Math.round(xOffset);
-    yOffset = Math.round(yOffset);
+    xOffset = this.x + Math.round(xOffset);
+    yOffset = this.y + Math.round(yOffset);
 
-    var tryMove = [this.x + xOffset, this.y + yOffset];
-
-    if(!pig.world.grid.hitTest(this, tryMove[0], tryMove[1])) {
-      this.x = tryMove[0];
-      this.y = tryMove[1];
-    } else if(!pig.world.grid.hitTest(this, this.x, tryMove[1])) {
-      this.y = tryMove[1];
-    } else if(!pig.world.grid.hitTest(this, tryMove[0], this.y)) {
-      this.x = tryMove[0];
-    }
+    this.tryMove(xOffset, yOffset);
   }
 
   this.shoot = function(dtime) {
@@ -58,7 +49,7 @@ JJ.Player = function(x, y) {
         pig.world.add(bullet);
       }
     }
-  }
+  };
 
   this.update = function(dtime) {
     this.move(dtime);

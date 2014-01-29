@@ -17,9 +17,14 @@ JJ.GameController = function() {
 
   var robot = new JJ.Robot(320, 300);
 
+  var robo_cage = new JJ.Cage(120, 120, "robot");
+  var empty_cage = new JJ.Cage(480, 120, "empty");
+
   this.add(this.game_map);
   this.add(janet);
   this.add(robot);
+  this.add(robo_cage);
+  this.add(empty_cage);
 
   pig.run();
 

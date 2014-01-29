@@ -1,5 +1,5 @@
 body {
-  background: #EEEEEE;
+  background: #FED87F;
   font-family: Playfair Display, serif;
 }
 
@@ -71,12 +71,12 @@ body {
   display: block;
   float: left;
   padding: 5px 10px;
-  background: #CCC;
+  background: #D63DBE;
   margin-right: 3px;
   cursor: pointer;
 }
 
 .menu li.active {
-  background: #333;
+  background: #223FA4;
   color: #FFF;
 }

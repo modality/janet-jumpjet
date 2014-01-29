@@ -1,7 +1,7 @@
 var JJ = JJ || {};
 
 JJ.Robot = function(x, y) {
-  pig.Entity.apply(this);
+  JJ.Entity.apply(this);
 
   this.type = "robot";
   this._removed = false;
