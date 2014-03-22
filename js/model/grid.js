@@ -25,45 +25,10 @@ pig.Grid = function(x, y, w, h, tw, th) {
   };
 
   this.hitTest = function(entity, x, y) {
-    /*
-    if(!entity.mask && entity.graphic.image.valid) {
-      console.log('murk', entity);
-      entity.graphic.image.crossOrigin = "Anonymous";
-      entity.mask = document.createElement('canvas');
-      entity.mask.width = entity.graphic.width;
-      entity.mask.height = entity.graphic.height;
-  
-      console.log(entity.mask, entity.graphic, entity.mask.width, entity.mask.height);
-
-      var context = entity.mask.getContext('2d');
-      context.drawImage(entity.graphic.image, 0, 0);
-      var imageData = context.getImageData(0, 0, entity.mask.width, entity.mask.height);
-
-      console.log(imageData);
-
-      for (var y = 0; y < entity.mask.height; y++) {
-        inpos = y * width * 4; // *4 for 4 ints per pixel
-        outpos = inpos + w2 * 4
-        for (x = 0; x < w2; x++) {
-          r = imageData.data[inpos++] / 3; // less red
-          g = imageData.data[inpos++] / 3; // less green
-          b = imageData.data[inpos++] * 5; // MORE BLUE
-          a = imageData.data[inpos++];     // same alpha
-
-          b = Math.min(255, b); // clamp to [0..255]
-
-          imageData.data[outpos++] = r;
-          imageData.data[outpos++] = g;
-          imageData.data[outpos++] = b;
-          imageData.data[outpos++] = a;
-        }
-      }
-
-      for(var i=imageData.data.length-1; i>=0; i--) {
-        imageData.data[i]
-      }
+    if(!entity.graphic.width || !entity.graphic.height) {
+      return false;
     }
-    */
+
     var gridArea = this.context.getImageData(x, y, entity.graphic.width, entity.graphic.height),
         gridData = gridArea.data;
 

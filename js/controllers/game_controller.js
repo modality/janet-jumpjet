@@ -4,7 +4,6 @@ JJ.GameController = function() {
   pig.World.apply(this);
   JJ.CombatRules.apply(this);
 
-  console.log('initializing canvas...');
   pig.init('main-canvas');
   pig.world = this;
 
@@ -38,7 +37,6 @@ JJ.GameController = function() {
   };
 
   this.changeGameMode = function(mode) {
-    console.log('mode', mode);
     this[mode+'Mode']();
   };
 

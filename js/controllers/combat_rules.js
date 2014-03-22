@@ -3,6 +3,7 @@ var JJ = JJ || {};
 JJ.CombatRules = function() {
   this.combat = function() {
     this.bulletsVsRobots();
+    this.bulletsVsCages();
   };
 
   this.bulletsVsRobots = function() {
@@ -23,5 +24,26 @@ JJ.CombatRules = function() {
         }
       }
     }
+  };
+
+  this.bulletsVsCages = function() {
+    var cages   = this.filter(function(e) { return e.type == "cage" }),
+        bullets = this.filter(function(e) { return e.type == "bullet" });
+
+    for(var b=bullets.length-1;b>=0;b--) {
+      var bullet = bullets[b];
+
+      for(var c=cages.length-1;c>=0;c--) {
+        var cage = cages[c],
+            rect = new pig.Rect(cage.x, cage.y, cage.w, cage.h);
+
+        if(!cage.opened && !bullet._removed && bullet.collide(rect)) {
+          this.remove(bullet);
+          cage.open();
+          break;
+        }
+      }
+    }
+
   };
 }

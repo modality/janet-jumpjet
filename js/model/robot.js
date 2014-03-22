@@ -29,8 +29,6 @@ JJ.Robot = function(x, y) {
         case 2: this.direction = 'down'; break;
         case 3: this.direction = 'left'; break;
       }
-
-      console.log(this.direction);
     }
 
     var move;
@@ -42,8 +40,7 @@ JJ.Robot = function(x, y) {
       case 'left': move = [-(dtime * JJ.Constants.ROBOT_SPEED), 0]; break;
     }
 
-    this.x += move[0];
-    this.y += move[1];
+    this.tryMove(this.x + move[0], this.y + move[1]);
   }
 
   this.update = function(dtime) {
