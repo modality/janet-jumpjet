@@ -11,9 +11,9 @@ JJ.Cage = function(x, y, occupant) {
   this.obstacle = true;
   this.opened = false;
 
-  this.empty_image = new pig.Image(x, y, "graphics/cage_empty.png");
-  this.robot_image = new pig.Image(x, y, "graphics/cage_beast.png");
-  this.open_image = new pig.Image(x, y, "graphics/cage_open.png");
+  this.empty_image = new pig.Image(x, y, JJ.Assets.EMPTY_CAGE);
+  this.robot_image = new pig.Image(x, y, JJ.Assets.ROBOT_CAGE);
+  this.open_image = new pig.Image(x, y, JJ.Assets.OPEN_CAGE);
 
   this.setOccupant = function(occupant) {
     this.occupant = occupant;

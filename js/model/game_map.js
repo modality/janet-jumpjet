@@ -3,7 +3,7 @@ var JJ = JJ || {};
 JJ.GameMap = function(grid) {
   pig.Entity.apply(this);
 
-  var imageUrl = 'graphics/tiles.png';
+  var imageUrl = JJ.Assets.TILES;
   this.grid = grid;
   this.tilemap = new pig.Tilemap(
       0,

@@ -5,7 +5,7 @@ JJ.Cursor = function(x, y) {
 
   this.x = x;
   this.y = y;
-  this.image = new pig.Image(x, y, "graphics/cursor.png");
+  this.image = new pig.Image(x, y, JJ.Assets.CURSOR);
   this.graphic = this.image;
 
   this.update = function(dtime) {

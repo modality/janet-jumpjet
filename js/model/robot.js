@@ -9,7 +9,7 @@ JJ.Robot = function(x, y) {
   this.y = y;
   this.w = 40;
   this.h = 40;
-  this.image = new pig.Image(x, y, "graphics/robot.png")
+  this.image = new pig.Image(x, y, JJ.Assets.ROBOT)
   this.graphic = this.image;
 
   this.directionTimeout = 0
@@ -44,7 +44,9 @@ JJ.Robot = function(x, y) {
   }
 
   this.update = function(dtime) {
-    this.move(dtime);
+    if(!pig.world.paused) {
+      this.move(dtime);
+    }
     this.graphic.place([this.x, this.y]);
   };
 };

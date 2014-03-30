@@ -24,4 +24,25 @@ JJ.UIController = function() {
   $('.rules-module .constant label').on('click', function() {
     $(this).closest('.constant').find('input').focus();
   });
+
+  var $palette = $('.palette-items');
+
+  for(key in JJ.PaletteItems) {
+    console.log("appendin");
+    var $pitem = $('<div></div>'),
+        $pimage = $('<div></div>');
+
+    $pitem.addClass("palette-item");
+
+    $pimage.addClass("image");
+    $pimage.css("background", "url("+JJ.PaletteItems[key]+") no-repeat");
+
+    $pitem.append($pimage);
+    $palette.append($pitem);
+  }
+
+  $('.palette-item').on('click', function() {
+    $('.palette-item').removeClass('selected');
+    $(this).addClass('selected');
+  });
 }

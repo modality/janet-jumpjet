@@ -30,10 +30,8 @@ JJ.GameController = function() {
   var modeOptions = {};
 
   this.update = function(dtime) {
-    if(!this.paused) {
-      this.combat();
-      this._update(dtime);
-    }
+    this.combat();
+    this._update(dtime);
   };
 
   this.changeGameMode = function(mode) {
@@ -42,14 +40,14 @@ JJ.GameController = function() {
 
   this.playMode = function() {
     this.paused = false;
+    $('#palette').hide();
     pig.world.remove(cursor);
-    pig.world.add(janet);
   };
 
   this.editMode = function() {
-    this.paused = false;
-    pig.world.remove(janet);
     pig.world.add(cursor);
+    $('#palette').show();
+    this.paused = true;
   };
 
   this.rulesMode = function() {

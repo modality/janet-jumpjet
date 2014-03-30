@@ -9,7 +9,7 @@ JJ.Bullet = function(x, y, x_vel, y_vel) {
   this.x_vel = x_vel;
   this.y_vel = y_vel;
 
-  this.image = new pig.Image(x, y, "graphics/bullet.png");
+  this.image = new pig.Image(x, y, JJ.Assets.BULLET);
   this.graphic = this.image;
 
   this.removed = function() {
@@ -17,14 +17,16 @@ JJ.Bullet = function(x, y, x_vel, y_vel) {
   }
   
   this.update = function(dtime) {
-    this.x = this.x + Math.round(this.x_vel * dtime);
-    this.y = this.y + Math.round(this.y_vel * dtime);
-    this.graphic.place([this.x, this.y]);
-    if(this.x > pig.canvas.width || this.y > pig.canvas.height) {
-      pig.world.remove(this);
-    }
-    if(this.x < 0 || this.y < 0) {
-      pig.world.remove(this);
+    if(!pig.world.paused) {
+      this.x = this.x + Math.round(this.x_vel * dtime);
+      this.y = this.y + Math.round(this.y_vel * dtime);
+      this.graphic.place([this.x, this.y]);
+      if(this.x > pig.canvas.width || this.y > pig.canvas.height) {
+        pig.world.remove(this);
+      }
+      if(this.x < 0 || this.y < 0) {
+        pig.world.remove(this);
+      }
     }
   };
 

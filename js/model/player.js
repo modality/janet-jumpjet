@@ -5,7 +5,7 @@ JJ.Player = function(x, y) {
 
   this.x = x;
   this.y = y;
-  this.graphic = new pig.Sprite(x, y, "graphics/janet.png", 28, 26);
+  this.graphic = new pig.Sprite(x, y, JJ.Assets.JANET, 28, 26);
   this.flipped = false;
 
   var firingTimeout = 0;
@@ -69,9 +69,10 @@ JJ.Player = function(x, y) {
   };
 
   this.update = function(dtime) {
-    this.move(dtime);
-    this.shoot(dtime);
-
+    if(!pig.world.paused) {
+      this.move(dtime);
+      this.shoot(dtime);
+    }
     this.graphic.place([this.x, this.y]);
   };
 };

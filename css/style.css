@@ -14,7 +14,40 @@ body {
   height: 480px;
 }
 
+#palette {
+  display: none;
+  float: right;
+  position: relative;
+}
+
+.palette-items {
+  position: absolute;
+  left: 20px;
+  padding: 10px;
+  margin-top: 32px;
+  background: white;
+}
+
+.palette-item {
+  float: left;
+  border: solid 1px #CACACA;
+  width: 40px;
+  height: 40px;
+  padding: 4px;
+  background: #F6F6F6;
+}
+
+.palette-item .image {
+  width: 40px;
+  height: 40px;
+}
+
+.palette-item.selected {
+  background: #DDDDDD;
+}
+
 #todo {
+  display: none;
   float: right;
   color: #000000;
   position: relative;
