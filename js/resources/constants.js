@@ -37,7 +37,6 @@ JJ.PaletteItems = {
   ROBOT: JJ.Assets.ROBOT,
   EMPTY_CAGE: JJ.Assets.EMPTY_CAGE,
   ROBOT_CAGE: JJ.Assets.ROBOT_CAGE,
-  QUESTION: JJ.Assets.QUESTION
 }
 
 JJ.ConstantsUI = {
