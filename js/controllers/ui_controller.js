@@ -28,11 +28,11 @@ JJ.UIController = function() {
   var $palette = $('.palette-items');
 
   for(key in JJ.PaletteItems) {
-    console.log("appendin");
     var $pitem = $('<div></div>'),
         $pimage = $('<div></div>');
 
     $pitem.addClass("palette-item");
+    $pitem.data("name", key);
 
     $pimage.addClass("image");
     $pimage.css("background", "url("+JJ.PaletteItems[key]+") no-repeat");
@@ -44,5 +44,13 @@ JJ.UIController = function() {
   $('.palette-item').on('click', function() {
     $('.palette-item').removeClass('selected');
     $(this).addClass('selected');
+  });
+
+  $('#palette').on('display', function() {
+    $(this).show();
+    $('.palette-item').removeClass('selected');
+    $('.palette-item').first().addClass('selected');
+  }).on('hide', function() {
+    $(this).hide();
   });
 }

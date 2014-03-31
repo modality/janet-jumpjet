@@ -3,6 +3,7 @@ var JJ = JJ || {};
 JJ.Player = function(x, y) {
   JJ.Entity.apply(this);
 
+  this.type = "player";
   this.x = x;
   this.y = y;
   this.graphic = new pig.Sprite(x, y, JJ.Assets.JANET, 28, 26);
@@ -12,9 +13,14 @@ JJ.Player = function(x, y) {
 
   this.graphic.add("right", [0]);
   this.graphic.add("left", [1]);
+  this.graphic.z = 3;
 
   function isPressed(keycode) {
     return pig.keysPressed[keycode];
+  }
+
+  this.getRect = function() {
+    return new pig.Rect(x, y, 28, 26);
   }
 
   this.move = function(dtime) {

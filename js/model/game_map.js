@@ -16,22 +16,24 @@ JJ.GameMap = function(grid) {
   );
 
   this.graphic = this.tilemap;
+  this.graphic.z = 0;
 
   this.setTile = function(tx, ty, tile) {
-    this.grid.setTile(tx, ty, true);
+    this.grid.setTile(tx, ty, (tile == 1) ? true : false);
     this.graphic.setTile(tx, ty, tile);
   };
 
   this.keyDown = function(key) {
     if(key == pig.key.G) {
       this.graphic = this.grid;
+      this.graphic.z = 0;
     }
   };
 
   this.keyUp = function(key) {
     if(key == pig.key.G) {
       this.graphic = this.tilemap;
+      this.graphic.z = 0;
     }
   };
-
 };

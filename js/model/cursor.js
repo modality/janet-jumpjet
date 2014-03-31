@@ -1,12 +1,17 @@
 var JJ = JJ || {};
 
 JJ.Cursor = function(x, y) {
-  pig.Entity.apply(this);
+  JJ.Entity.apply(this);
 
   this.x = x;
   this.y = y;
   this.image = new pig.Image(x, y, JJ.Assets.CURSOR);
   this.graphic = this.image;
+  
+  this.getRect = function() {
+    // cheat this to be a little smaller, so that erasing doesn't destroy surrounding blocks
+    return new pig.Rect(this.x+10, this.y+10, this.graphic.width-20, this.graphic.height-20);
+  }
 
   this.update = function(dtime) {
     this.x = Math.floor(pig.mouse.x / JJ.Constants.TILE_W) * JJ.Constants.TILE_W; 

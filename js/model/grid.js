@@ -25,11 +25,9 @@ pig.Grid = function(x, y, w, h, tw, th) {
   };
 
   this.hitTest = function(entity, x, y) {
-    if(!entity.graphic.width || !entity.graphic.height) {
-      return false;
-    }
+    var rect = entity.getRect();
 
-    var gridArea = this.context.getImageData(x, y, entity.graphic.width, entity.graphic.height),
+    var gridArea = this.context.getImageData(x, y, rect.w, rect.h),
         gridData = gridArea.data;
 
     for(var i=0, dataLen = gridData.length; i<dataLen; i+=4) {

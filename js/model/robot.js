@@ -4,6 +4,7 @@ JJ.Robot = function(x, y) {
   JJ.Entity.apply(this);
 
   this.type = "robot";
+  this.obstacle = true;
   this._removed = false;
   this.x = x;
   this.y = y;
@@ -11,13 +12,18 @@ JJ.Robot = function(x, y) {
   this.h = 40;
   this.image = new pig.Image(x, y, JJ.Assets.ROBOT)
   this.graphic = this.image;
+  this.graphic.z = 2;
 
   this.directionTimeout = 0
   this.direction = 'up';
 
   this.removed = function() {
     this._removed = true;
-  }
+  };
+
+  this.getRect = function() {
+    return new pig.Rect(this.x + 5, this.y + 5, 30, 30)
+  };
 
   this.move = function(dtime) {
     this.directionTimeout -= dtime;
@@ -41,7 +47,8 @@ JJ.Robot = function(x, y) {
     }
 
     this.tryMove(this.x + move[0], this.y + move[1]);
-  }
+  };
+
 
   this.update = function(dtime) {
     if(!pig.world.paused) {

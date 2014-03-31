@@ -6,10 +6,7 @@ JJ.Entity = function() {
   this.obstacle = false;
 
   this.getRect = function() {
-    if(!this.rect) {
-      this.rect = new pig.Rect(this.x, this.y, this.graphic.width, this.graphic.height);
-    }
-    return this.rect;
+    return new pig.Rect(this.x, this.y, this.graphic.width, this.graphic.height);
   };
   
   this.collideWith = function(entity) {

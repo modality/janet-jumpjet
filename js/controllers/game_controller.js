@@ -7,30 +7,32 @@ JJ.GameController = function() {
   pig.init('main-canvas');
   pig.world = this;
 
-  this.grid = new pig.Grid(0, 0, 640, 480, 40, 40);
-  this.game_map = new JJ.GameMap(this.grid);
-  this.paused = false;
-
-  var janet = new JJ.Player(320, 240);
-  var cursor = new JJ.Cursor(0, 0);
-
-  var robot = new JJ.Robot(320, 300);
-
-  var robo_cage = new JJ.Cage(120, 120, "robot");
-  var empty_cage = new JJ.Cage(480, 120, "empty");
-
-  this.add(this.game_map);
-  this.add(janet);
-  this.add(robot);
-  this.add(robo_cage);
-  this.add(empty_cage);
-
-  pig.run();
-
   var modeOptions = {};
+  var cursor;
+
+  this.init = function() {
+
+    this.grid = new pig.Grid(0, 0, 640, 480, 40, 40);
+    this.game_map = new JJ.GameMap(this.grid);
+    this.paused = false;
+
+    var janet = new JJ.Player(310, 400);
+
+    cursor = new JJ.Cursor(0, 0);
+
+    this.add(this.game_map);
+    this.add(janet);
+
+    JJ.LevelDefault.apply(this);
+
+    JJ.PaletteRules.apply(this, [cursor]);
+
+    pig.run();
+  }
 
   this.update = function(dtime) {
     this.combat();
+    //this.palette();
     this._update(dtime);
   };
 
@@ -38,15 +40,22 @@ JJ.GameController = function() {
     this[mode+'Mode']();
   };
 
+  this.worldToTile = function(x, y) {
+    return {
+      x: Math.floor(x / JJ.Constants.TILE_W),
+      y: Math.floor(y / JJ.Constants.TILE_H)
+    };
+  }
+
   this.playMode = function() {
     this.paused = false;
-    $('#palette').hide();
+    $('#palette').trigger("hide");
     pig.world.remove(cursor);
   };
 
   this.editMode = function() {
     pig.world.add(cursor);
-    $('#palette').show();
+    $('#palette').trigger("display");
     this.paused = true;
   };
 
@@ -54,9 +63,6 @@ JJ.GameController = function() {
     this.paused = true;
   }
 
-  cursor.mouseDown = function() {
-    pig.world.game_map.setTile(Math.floor(pig.mouse.x / JJ.Constants.TILE_W),
-                               Math.floor(pig.mouse.y / JJ.Constants.TILE_H),
-                               1);
-  }
+
+  this.init();
 };

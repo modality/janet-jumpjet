@@ -15,7 +15,7 @@ JJ.CombatRules = function() {
 
       for(var r=robots.length-1;r>=0;r--) {
         var robot = robots[r],
-            rect = new pig.Rect(robot.x, robot.y, robot.w, robot.h);
+            rect = robot.getRect();
 
         if(!bullet._removed && bullet.collide(rect)) {
           this.remove(robot);
