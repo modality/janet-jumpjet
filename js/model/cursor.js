@@ -14,6 +14,11 @@ JJ.Cursor = function(x, y) {
   }
 
   this.update = function(dtime) {
+    if(!pig.mouse.x || !pig.mouse.y) {
+      this.graphic.place([640, 0]);
+      return;
+    }
+
     this.x = Math.floor(pig.mouse.x / JJ.Constants.TILE_W) * JJ.Constants.TILE_W; 
     this.y = Math.floor(pig.mouse.y / JJ.Constants.TILE_H) * JJ.Constants.TILE_H;
     this.graphic.place([this.x, this.y]);

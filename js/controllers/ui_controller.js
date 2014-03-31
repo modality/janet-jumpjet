@@ -11,6 +11,8 @@ JJ.UIController = function() {
     html.push('<label for="'+key+'">'+JJ.ConstantsUI[key].name+':</label>');
     html.push('<input type="number" step="1" name="'+key+'" value="'+JJ.Constants[key]+'"/>');
 
+    html.push('<p>'+JJ.ConstantsUI[key].desc+'</p>');
+
     $ui.html(html.join(''));
 
     $rules.append($ui);

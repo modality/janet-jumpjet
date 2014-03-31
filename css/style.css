@@ -1,12 +1,11 @@
 body {
-  background: #FED87F;
+  background: #EEEEEE;
   font-family: Playfair Display, serif;
 }
 
 #main {
   margin: 20px auto;
   width: 640px;
-  height: 480px;
 }
 
 #main-canvas {
@@ -23,9 +22,9 @@ body {
 .palette-items {
   position: absolute;
   left: 20px;
-  padding: 10px;
   margin-top: 32px;
   background: white;
+  box-shadow: rgba(0,0,0,0.5) 0 0 10px;
 }
 
 .palette-item {
@@ -67,6 +66,7 @@ body {
 .display {
   width: 640px;
   height: 480px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 20px;
 }
 
 .game-module {
@@ -85,13 +85,18 @@ body {
 }
 
 .rules-module .constant label {
-  width: 120px;
+  width: 140px;
   display: block;
   float: left;
 }
 
 .rules-module .constant input {
-  width: 200px;
+  width: 60px;
+}
+
+.rules-module .constant p {
+  font-size: 12px;
+  margin: 0 0 10px;
 }
 
 .menu ul {

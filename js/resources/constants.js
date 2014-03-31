@@ -58,6 +58,7 @@ JJ.ConstantsUI = {
     desc: "How fast the enemy robots move (in pixels per second)"
   },
   ROBOT_WALK_TIME: {
-    name: "Robot Walk Time"
+    name: "Robot Walk Time",
+    desc: "How often robots change direction (in seconds)"
   }
 }
